@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Saved Videos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Video</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @saved_videos.each do |saved_video| %>
+      <tr>
+        <td><%= saved_video.user_id %></td>
+        <td><%= saved_video.video_id %></td>
+        <td><%= link_to 'Show', saved_video %></td>
+        <td><%= link_to 'Edit', edit_saved_video_path(saved_video) %></td>
+        <td><%= link_to 'Destroy', saved_video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Saved Video', new_saved_video_path %>

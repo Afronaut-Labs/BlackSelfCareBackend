@@ -1,0 +1,7 @@
+{
+  id: @saved_video.id,
+  user_id: @saved_video.user_id,
+  video_id: @saved_video.video_id,
+  created_at: @saved_video.created_at,
+  updated_at: @saved_video.updated_at
+}

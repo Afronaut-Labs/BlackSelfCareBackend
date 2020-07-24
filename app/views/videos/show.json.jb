@@ -1,0 +1,7 @@
+{
+  id: @video.id,
+  url: @video.url,
+  category: @video.category,
+  created_at: @video.created_at,
+  updated_at: @video.updated_at
+}

@@ -1,0 +1,8 @@
+@saved_quotes.map do |saved_quote|
+  {
+    id: saved_quote.id,
+    user_id: saved_quote.user_id,
+    quote_id: saved_quote.quote_id,
+    url: saved_quote_url(saved_quote, format: :json)
+  }
+end

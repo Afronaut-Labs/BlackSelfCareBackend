@@ -1,0 +1,7 @@
+{
+  id: @saved_quote.id,
+  user_id: @saved_quote.user_id,
+  quote_id: @saved_quote.quote_id,
+  created_at: @saved_quote.created_at,
+  updated_at: @saved_quote.updated_at
+}

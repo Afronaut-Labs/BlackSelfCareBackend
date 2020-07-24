@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @saved_game.user_id %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @saved_game.game_id %>
+</p>
+
+<%= link_to 'Edit', edit_saved_game_path(@saved_game) %> |
+<%= link_to 'Back', saved_games_path %>

@@ -1,0 +1,7 @@
+{
+  id: @game.id,
+  url: @game.url,
+  category: @game.category,
+  created_at: @game.created_at,
+  updated_at: @game.updated_at
+}

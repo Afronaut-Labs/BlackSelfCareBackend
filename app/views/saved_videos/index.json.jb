@@ -1,0 +1,8 @@
+@saved_videos.map do |saved_video|
+  {
+    id: saved_video.id,
+    user_id: saved_video.user_id,
+    video_id: saved_video.video_id,
+    url: saved_video_url(saved_video, format: :json)
+  }
+end

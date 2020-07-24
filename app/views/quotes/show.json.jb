@@ -1,0 +1,8 @@
+{
+  id: @quote.id,
+  author: @quote.author,
+  image: @quote.image,
+  category: @quote.category,
+  created_at: @quote.created_at,
+  updated_at: @quote.updated_at
+}

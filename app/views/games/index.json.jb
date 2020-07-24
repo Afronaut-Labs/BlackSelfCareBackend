@@ -1,0 +1,8 @@
+@games.map do |game|
+  {
+    id: game.id,
+    url: game.url,
+    category: game.category,
+    url: game_url(game, format: :json)
+  }
+end
