@@ -5,11 +5,14 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     @videos = Video.all
+    render "index.json.jb"
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @video = Video.find_by(id: params[:id])
+    render "show.json.jb"
   end
 
   # GET /videos/new
@@ -28,7 +31,7 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
+        format.html { redirect_to @video, notice: "Video was successfully created." }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+        format.html { redirect_to @video, notice: "Video was successfully updated." }
         format.json { render :show, status: :ok, location: @video }
       else
         format.html { render :edit }
@@ -56,19 +59,20 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to videos_url, notice: "Video was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_video
-      @video = Video.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def video_params
-      params.require(:video).permit(:url, :category)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_video
+    @video = Video.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def video_params
+    params.require(:video).permit(:url, :category)
+  end
 end

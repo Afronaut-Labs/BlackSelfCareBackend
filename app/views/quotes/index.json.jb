@@ -4,6 +4,6 @@
     author: quote.author,
     image: quote.image,
     category: quote.category,
-    url: quote_url(quote, format: :json)
+    url: quote_url(quote, format: :json),
   }
 end

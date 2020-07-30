@@ -5,11 +5,14 @@ class QuotesController < ApplicationController
   # GET /quotes.json
   def index
     @quotes = Quote.all
+    render "index.json.jb"
   end
 
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    @quote = Quote.find_by(id: params[:id])
+    render "show.json.jb"
   end
 
   # GET /quotes/new
@@ -28,7 +31,7 @@ class QuotesController < ApplicationController
 
     respond_to do |format|
       if @quote.save
-        format.html { redirect_to @quote, notice: 'Quote was successfully created.' }
+        format.html { redirect_to @quote, notice: "Quote was successfully created." }
         format.json { render :show, status: :created, location: @quote }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class QuotesController < ApplicationController
   def update
     respond_to do |format|
       if @quote.update(quote_params)
-        format.html { redirect_to @quote, notice: 'Quote was successfully updated.' }
+        format.html { redirect_to @quote, notice: "Quote was successfully updated." }
         format.json { render :show, status: :ok, location: @quote }
       else
         format.html { render :edit }
@@ -56,19 +59,20 @@ class QuotesController < ApplicationController
   def destroy
     @quote.destroy
     respond_to do |format|
-      format.html { redirect_to quotes_url, notice: 'Quote was successfully destroyed.' }
+      format.html { redirect_to quotes_url, notice: "Quote was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_quote
-      @quote = Quote.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def quote_params
-      params.require(:quote).permit(:author, :image, :category)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_quote
+    @quote = Quote.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def quote_params
+    params.require(:quote).permit(:author, :image, :category)
+  end
 end
