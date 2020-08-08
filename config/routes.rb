@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "dashboard/show"
+  root "home#show"
+  get "home/show"
   resources :saved_games
   resources :saved_videos
   resources :saved_quotes
@@ -9,6 +12,10 @@ Rails.application.routes.draw do
   # EXAMPLE HTML ROUTE
   # get "/photos" => "photos#index"
 
+  get "auth/auth0/callback" => "auth0#callback"
+  get "auth/failure" => "auth0#failure"
+  post "auth/auth0" => "dashboard#create"
+
   get "/quotes" => "quotes#index"
   get "/quotes/:id" => "quotes#show"
 
@@ -17,6 +24,8 @@ Rails.application.routes.draw do
 
   get "/videos" => "videos#index"
   get "/videos/:id" => "videos#show"
+
+  get "dashboard" => "dashboard#show"
 
   # EXAMPLE JSON ROUTE WITH API NAMESPACE
   # namespace :api do
