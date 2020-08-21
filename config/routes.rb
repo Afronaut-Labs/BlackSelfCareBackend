@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   get "auth/auth0/callback" => "auth0#callback"
   get "auth/failure" => "auth0#failure"
-  post "auth/auth0" => "dashboard#create"
+  # get "auth/auth0" =>
+  # post "auth/auth0" => "dashboard#create"
+  get "/dashboard" => "dashboard#show"
 
   get "/quotes" => "quotes#index"
   get "/quotes/:id" => "quotes#show"
@@ -24,8 +26,6 @@ Rails.application.routes.draw do
 
   get "/videos" => "videos#index"
   get "/videos/:id" => "videos#show"
-
-  get "dashboard" => "dashboard#show"
 
   # EXAMPLE JSON ROUTE WITH API NAMESPACE
   # namespace :api do
